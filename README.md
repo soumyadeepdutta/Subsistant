@@ -50,18 +50,23 @@ npx serve out
 
 ## Deployment
 
-This project is configured for automatic deployment to GitHub Pages. Every push to the `main` branch triggers a GitHub Actions workflow that builds and deploys the site.
+This project uses a unified workflow for releases and deployment to GitHub Pages. Every push to the `master` branch triggers the pipeline.
 
-### GitHub Pages Setup
+### How it Works
 
-1. Go to your repository Settings → Pages
-2. Under "Source", select **GitHub Actions**
-3. Push to the `main` branch to trigger deployment
-4. Your site will be available at: `https://imsoumyadeepdutta.github.io/Subsistant/`
+1. **Version Check**: The workflow checks if the `version` in `package.json` has changed.
+2. **Auto-Release**: If the version is new, it automatically creates a GitHub Release with a tag (e.g., `v1.0.1`).
+3. **Build & Deploy**: The app is built as a static export and deployed to GitHub Pages.
 
-### Manual Deployment
+### Setup Instructions
 
-You can also manually trigger a deployment from the Actions tab in your GitHub repository.
+1. Go to repository **Settings** > **Pages**.
+2. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+3. Push your changes to the `master` branch.
+
+### Manual Trigger
+
+You can also manually trigger the "Release and Deploy" workflow from the **Actions** tab in your GitHub repository.
 
 ## Tech Stack
 
